@@ -19,8 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_16.app
+      - name: Show Xcode in use
+        run: xcodebuild -version
 
       - name: Install XcodeGen
         run: brew install xcodegen
@@ -28,23 +28,23 @@ jobs:
       - name: Generate Xcode project
         run: xcodegen generate
 
-      - name: Show available simulators
-        run: xcrun simctl list devicetypes | grep iPhone || true
+      - name: Resolve an available iOS simulator
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c "import json,sys; d=json.load(sys.stdin); ids=[dev['udid'] for runtime,devs in d['devices'].items() if 'iOS' in runtime for dev in devs if dev.get('isAvailable') and dev['name'].startswith('iPhone')]; print(ids[0] if ids else '')")
+          if [ -z "$UDID" ]; then echo "No available iOS simulator"; xcrun simctl list devices available; exit 1; fi
+          echo "Using simulator UDID: $UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
 
       - name: Build & Test
         run: |
           set -o pipefail
           xcodebuild \
             -scheme TimeLens \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
             -resultBundlePath TestResults \
             clean test \
-            CODE_SIGNING_ALLOWED=NO \
-            | xcbeautify || xcodebuild \
-              -scheme TimeLens \
-              -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-              clean test \
-              CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_ALLOWED=NO
 
       - name: Upload test results
         if: always()
