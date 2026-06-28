@@ -2,6 +2,9 @@ import XCTest
 
 /// Minimal launch smoke test. Phase 1+ adds onboarding, permission-denied,
 /// paywall and restore UI flows (CLAUDE.md §11 UI Tests).
+/// `@MainActor`: XCUIApplication and its query APIs are main-actor isolated
+/// under Swift 6 strict concurrency.
+@MainActor
 final class SmokeUITests: XCTestCase {
 
     func test_launchesAndShowsDiscover() {
