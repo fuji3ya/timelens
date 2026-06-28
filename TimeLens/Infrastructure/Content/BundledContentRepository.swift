@@ -3,22 +3,21 @@ import Foundation
 /// Loads content from a JSON file inside the app bundle (CLAUDE.md §4, §10).
 /// V1 ships entirely from the bundle — no network required for first run.
 struct BundledContentRepository: ContentRepository {
-    private let bundle: Bundle
+    // Only Sendable state (Strings) is stored so the repository is Sendable.
+    // The bundle is resolved at call time via `Bundle.main`.
     private let resourceName: String
     private let resourceExtension: String
 
     init(
-        bundle: Bundle = .main,
         resourceName: String = "routes",
         resourceExtension: String = "json"
     ) {
-        self.bundle = bundle
         self.resourceName = resourceName
         self.resourceExtension = resourceExtension
     }
 
     func loadRoutes(productionSafeOnly: Bool) async throws -> [Route] {
-        guard let url = bundle.url(forResource: resourceName, withExtension: resourceExtension) else {
+        guard let url = Bundle.main.url(forResource: resourceName, withExtension: resourceExtension) else {
             Log.content.error("Content resource not found: \(resourceName).\(resourceExtension, privacy: .public)")
             throw ContentError.missingResource(name: "\(resourceName).\(resourceExtension)")
         }
