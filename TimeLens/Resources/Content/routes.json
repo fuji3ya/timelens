@@ -1,0 +1,127 @@
+{
+  "routes": [
+    {
+      "id": "route.sample.showa",
+      "title": "[SAMPLE] 昭和の商店街さんぽ",
+      "eraLabel": "昭和後期",
+      "isFreePreview": true,
+      "productID": "route.sample.showa.full",
+      "spots": [
+        {
+          "id": "spot.sample.hero",
+          "title": "[SAMPLE] 駅前の大時計",
+          "coordinate": { "latitude": 35.681236, "longitude": 139.767125 },
+          "viewingPoint": {
+            "coordinate": { "latitude": 35.681300, "longitude": 139.767000 },
+            "headingDegrees": 270.0,
+            "guidance": "[SAMPLE] 歩道の角に立ち止まり、駅舎の方向（西）へカメラを向けてください。",
+            "guideImageName": null
+          },
+          "safety": {
+            "safeViewingArea": "[SAMPLE] 駅前広場の歩道、ベンチ脇の安全な余白。",
+            "hazards": ["車道が近い", "人通りが多い時間帯あり"],
+            "requiresStopConfirmation": true
+          },
+          "experience": {
+            "primaryMode": "manualPhoto",
+            "fallbackModes": ["cinematicFallback"],
+            "isHeroScene": true,
+            "caption": "[SAMPLE] かつてここに、夜になると灯る大時計がありました。",
+            "overlayAssetName": null,
+            "ambientAudioName": null
+          },
+          "evidence": [
+            {
+              "id": "ev.sample.hero.photo",
+              "expressionLevel": "reconstructed",
+              "sourceName": "[SAMPLE] 市史編纂資料 第3巻",
+              "rightsStatus": "publicDomain",
+              "attribution": "notRequired",
+              "permittedUses": ["inApp", "sns"],
+              "contentOwner": "[SAMPLE] サンプル市",
+              "reviewedAt": "2026-06-01T00:00:00Z",
+              "permissionRecordID": null,
+              "reviewDueAt": null
+            }
+          ]
+        },
+        {
+          "id": "spot.sample.paid.cinema",
+          "title": "[SAMPLE] 消えた映画館",
+          "coordinate": { "latitude": 35.682000, "longitude": 139.766000 },
+          "viewingPoint": {
+            "coordinate": { "latitude": 35.682050, "longitude": 139.766100 },
+            "headingDegrees": 90.0,
+            "guidance": "[SAMPLE] 路地の入口で立ち止まり、東側のビル壁面へカメラを向けてください。",
+            "guideImageName": null
+          },
+          "safety": {
+            "safeViewingArea": "[SAMPLE] 路地入口の広い歩道。車両進入なし。",
+            "hazards": ["夜間は暗い"],
+            "requiresStopConfirmation": true
+          },
+          "experience": {
+            "primaryMode": "manual3D",
+            "fallbackModes": ["manualPhoto", "cinematicFallback"],
+            "isHeroScene": false,
+            "caption": "[SAMPLE] 昭和の夜、ここには名画座のネオンが瞬いていました。",
+            "overlayAssetName": null,
+            "ambientAudioName": null
+          },
+          "evidence": [
+            {
+              "id": "ev.sample.cinema.model",
+              "expressionLevel": "dramatised",
+              "sourceName": "[SAMPLE] 制作チームによる再現モデル",
+              "rightsStatus": "cleared",
+              "attribution": "[SAMPLE] 制作: TimeLens Studio",
+              "permittedUses": ["inApp", "sns", "event"],
+              "contentOwner": "[SAMPLE] TimeLens Studio",
+              "reviewedAt": "2026-06-10T00:00:00Z",
+              "permissionRecordID": "ledger-sample-0002",
+              "reviewDueAt": "2027-06-10T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": "spot.sample.paid.market",
+          "title": "[SAMPLE] 露店の角",
+          "coordinate": { "latitude": 35.682500, "longitude": 139.765500 },
+          "viewingPoint": {
+            "coordinate": { "latitude": 35.682550, "longitude": 139.765600 },
+            "headingDegrees": 180.0,
+            "guidance": "[SAMPLE] 交差点の手前で立ち止まり、南側へカメラを向けてください。",
+            "guideImageName": null
+          },
+          "safety": {
+            "safeViewingArea": "[SAMPLE] 交差点手前のセットバックした歩道。",
+            "hazards": ["横断歩道が近い"],
+            "requiresStopConfirmation": true
+          },
+          "experience": {
+            "primaryMode": "manualPhoto",
+            "fallbackModes": ["cinematicFallback"],
+            "isHeroScene": false,
+            "caption": "[SAMPLE] 夕暮れ時、この角には惣菜の湯気と呼び込みの声がありました。",
+            "overlayAssetName": null,
+            "ambientAudioName": null
+          },
+          "evidence": [
+            {
+              "id": "ev.sample.market.photo",
+              "expressionLevel": "recorded",
+              "sourceName": "[SAMPLE] 寄贈写真コレクション",
+              "rightsStatus": "licensed",
+              "attribution": "[SAMPLE] 提供: サンプル郷土資料館",
+              "permittedUses": ["inApp"],
+              "contentOwner": "[SAMPLE] サンプル郷土資料館",
+              "reviewedAt": "2026-05-20T00:00:00Z",
+              "permissionRecordID": "ledger-sample-0003",
+              "reviewDueAt": "2027-05-20T00:00:00Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

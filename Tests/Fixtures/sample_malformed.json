@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {
+      "id": "route.test.malformed",
+      "eraLabel": "昭和",
+      "isFreePreview": true,
+      "spots": []
+    }
+  ]
+}

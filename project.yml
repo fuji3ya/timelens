@@ -1,0 +1,70 @@
+name: TimeLens
+options:
+  bundleIdPrefix: com.starvingeffort.timelens
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+  developmentLanguage: ja
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    GENERATE_INFOPLIST_FILE: YES
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_STRICT_CONCURRENCY: complete
+
+targets:
+  TimeLens:
+    type: application
+    platform: iOS
+    sources:
+      - path: TimeLens
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.starvingeffort.timelens
+        TARGETED_DEVICE_FAMILY: "1" # iPhone only for V1
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        # Contextual permission strings (Section 8 of CLAUDE.md)
+        INFOPLIST_KEY_NSCameraUsageDescription: "現在の街並みに過去の風景を重ねて表示するために、カメラを使用します。"
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "近くにある「時代の窓」と安全な観覧地点を案内するために、現在地を使用します。"
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "作成した現在と過去の比較画像・動画を写真ライブラリに保存するために使用します。"
+
+  TimeLensTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests/Unit
+      - path: Tests/Fixtures
+    dependencies:
+      - target: TimeLens
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.starvingeffort.timelens.tests
+
+  TimeLensUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: Tests/UI
+    dependencies:
+      - target: TimeLens
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.starvingeffort.timelens.uitests
+
+schemes:
+  TimeLens:
+    build:
+      targets:
+        TimeLens: all
+        TimeLensTests: [test]
+        TimeLensUITests: [test]
+    test:
+      targets:
+        - TimeLensTests
+        - TimeLensUITests
+      gatherCoverageData: true

@@ -1,0 +1,35 @@
+# Xcode / build
+build/
+DerivedData/
+*.xcodeproj
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# XcodeGen generates the project on CI; never commit the generated project
+TimeLens.xcodeproj/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Secrets / signing (never commit)
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+.env
+.env.local
+AuthKey_*.p8
+
+# Rights ledger live data (only the SAMPLE is committed)
+Resources/Content/rights-ledger.json

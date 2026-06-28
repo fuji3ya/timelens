@@ -1,0 +1,55 @@
+name: iOS Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ios-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    name: Build & Unit Test (Phase 0)
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_16.app
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Show available simulators
+        run: xcrun simctl list devicetypes | grep iPhone || true
+
+      - name: Build & Test
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -scheme TimeLens \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -resultBundlePath TestResults \
+            clean test \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcbeautify || xcodebuild \
+              -scheme TimeLens \
+              -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+              clean test \
+              CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults
+          if-no-files-found: ignore

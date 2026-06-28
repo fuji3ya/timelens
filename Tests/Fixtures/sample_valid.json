@@ -1,0 +1,51 @@
+{
+  "routes": [
+    {
+      "id": "route.test.valid",
+      "title": "テスト用ルート",
+      "eraLabel": "昭和",
+      "isFreePreview": true,
+      "productID": "route.test.valid.full",
+      "spots": [
+        {
+          "id": "spot.test.hero",
+          "title": "テスト Hero",
+          "coordinate": { "latitude": 35.0, "longitude": 139.0 },
+          "viewingPoint": {
+            "coordinate": { "latitude": 35.0, "longitude": 139.0 },
+            "headingDegrees": 90.0,
+            "guidance": "立ち止まる",
+            "guideImageName": null
+          },
+          "safety": {
+            "safeViewingArea": "歩道",
+            "hazards": [],
+            "requiresStopConfirmation": true
+          },
+          "experience": {
+            "primaryMode": "manualPhoto",
+            "fallbackModes": ["cinematicFallback"],
+            "isHeroScene": true,
+            "caption": "むかしの景色",
+            "overlayAssetName": null,
+            "ambientAudioName": null
+          },
+          "evidence": [
+            {
+              "id": "ev.test.1",
+              "expressionLevel": "recorded",
+              "sourceName": "資料A",
+              "rightsStatus": "publicDomain",
+              "attribution": "notRequired",
+              "permittedUses": ["inApp"],
+              "contentOwner": "テスト市",
+              "reviewedAt": "2026-06-01T00:00:00Z",
+              "permissionRecordID": null,
+              "reviewDueAt": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

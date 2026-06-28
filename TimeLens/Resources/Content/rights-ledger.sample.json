@@ -1,0 +1,29 @@
+{
+  "_note": "SAMPLE only. The live rights ledger is never committed (see .gitignore). This illustrates the schema from CLAUDE.md §7 最低限の権利台帳.",
+  "records": [
+    {
+      "assetID": "ev.sample.cinema.model",
+      "rightsHolder": "[SAMPLE] TimeLens Studio",
+      "source": "[SAMPLE] 自社制作 / 複数の市史資料に基づく再構成",
+      "license": "[SAMPLE] 社内制作物・全権利保有",
+      "permittedScope": ["app", "sns", "event"],
+      "derivativeAllowed": true,
+      "credit": "[SAMPLE] 制作: TimeLens Studio",
+      "expiresAt": "2027-06-10",
+      "expressionLevel": "dramatised",
+      "owner": "[PLACEHOLDER] 最終確認責任者氏名"
+    },
+    {
+      "assetID": "ev.sample.market.photo",
+      "rightsHolder": "[SAMPLE] サンプル郷土資料館",
+      "source": "[SAMPLE] 寄贈写真コレクション 整理番号 SAMPLE-1978-04",
+      "license": "[SAMPLE] 利用許諾書 No.SAMPLE-2026-003",
+      "permittedScope": ["app"],
+      "derivativeAllowed": false,
+      "credit": "[SAMPLE] 提供: サンプル郷土資料館",
+      "expiresAt": "2027-05-20",
+      "expressionLevel": "recorded",
+      "owner": "[PLACEHOLDER] 最終確認責任者氏名"
+    }
+  ]
+}
