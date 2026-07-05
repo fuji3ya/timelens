@@ -22,14 +22,17 @@ xcodebuild -scheme TimeLens -destination 'platform=iOS Simulator,name=iPhone 16'
 
 CI（GitHub Actions macOS runner）が `.github/workflows/ios-build.yml` で同等を実行する。
 
-## 進捗
-- [x] Phase 0 — リポジトリ初期化と土台（ドメインモデル / サンプルJSON / Discover→Detail 遷移 / Unit Test）
+## 進捗（ロードマップ現行版: [Docs/PLAN_V2.md](Docs/PLAN_V2.md)）
+- [x] Phase 0 — リポジトリ初期化と土台（CI green・33 tests）
 - [ ] Phase 1 — Discover / Spot Detail / 位置情報
-- [ ] Phase 2 — 無料 Hero Scene（Manual Photo Alignment）
-- [ ] Phase 3 — Hero Scene の軽量3D化
-- [ ] Phase 4 — 有料ルートと StoreKit
+- [ ] Phase 1.5 — ASC app + TestFlight 配布パイプライン
+- [ ] Track C — コンテンツ制作（エリア決定 / 生成素材 / 権利台帳）※ Phase 1〜2 と並走
+- [ ] Phase 2 — 無料 Hero Scene（Mode A スライダー + Mode D）
+- [ ] Phase 2.5 — 実機体験ゲート（15秒 wow 判定）
+- [ ] Phase 4 — 有料ルートと StoreKit + 名称クリアランス
 - [ ] Phase 5 — ルート体験 / 共有 / 分析
 - [ ] Phase 6 — フィールドテストとリリース
+- [ ] (P1) 旧 Phase 3 — Hero Scene の軽量 3D 化（ゲート結果次第で V1 復活）
 
 ## ディレクトリ
 `CLAUDE.md` §9 の構成に準拠。`Features → Domain → Infrastructure` の責務境界を崩さない。
