@@ -22,6 +22,10 @@ xcodebuild -scheme TimeLens -destination 'platform=iOS Simulator,name=iPhone 16'
 
 CI（GitHub Actions macOS runner）が `.github/workflows/ios-build.yml` で同等を実行する。
 
+## 主要ドキュメント
+- [Docs/PLAN_V2.md](Docs/PLAN_V2.md) — ロードマップ現行版（Track C 並走 / 3D は P1 / 実機体験ゲート）
+- [Docs/EXPERIENCE_QUALITY.md](Docs/EXPERIENCE_QUALITY.md) — Hero Scene 体験品質仕様（構図一致アセット / リビール振付 / 3層ブレンド / 審査デモモード）
+
 ## 進捗（ロードマップ現行版: [Docs/PLAN_V2.md](Docs/PLAN_V2.md)）
 - [x] Phase 0 — リポジトリ初期化と土台（CI green・33 tests）
 - [ ] Phase 1 — Discover / Spot Detail / 位置情報
